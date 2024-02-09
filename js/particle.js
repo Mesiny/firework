@@ -13,7 +13,7 @@ class Particle {
             this.vel = p5.Vector.random2D(); //随机产生二维向量
             // p5.Vector.random2D()产生的向量为单位向量 即模为1
             // console.log(this.vel.x * this.vel.x + this.vel.y * this.vel.y);
-            this.vel = this.vel.mult(random(2, isPhone ? 8 : 15)); //改变向量的模
+            this.vel = this.vel.mult(random(2, isPhone ? 7 : 15)); //改变向量的模
         }
 
         this.acc = createVector(0, 0); //加速度?
@@ -27,7 +27,6 @@ class Particle {
         this.vel.add(this.acc); //速度+加速度
         this.pos.add(this.vel); //位置+速度
         this.acc.mult(0); //加速度的变化？
-
     }
     show() { //show方法：展示粒子
         colorMode(HSB);
@@ -35,7 +34,6 @@ class Particle {
             strokeWeight(4);
             stroke(this.colorH, 255, 255); //上升粒子颜色不衰减  设置颜色和粗细
             point();
-
         } else {
             strokeWeight(2);
             stroke(this.colorH, 255, 255, this.lifespan);  //若lifespan为负，则绘制不出来
